@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  font-family: 'Inter Tight', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Color scheme variables */
+  --cerulean-blue: #007BA7;
+  --cerulean-dark: #006994;
+  --cerulean-light: #1E90FF;
+  --gray-border: #7F8C8D;
+  --gray-dark: #2C3E50;
+  --yellow-hover: #FFD700;
+  --yellow-light: #FFFACD;
+  
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: linear-gradient(
+    135deg,
+    var(--cerulean-blue) 0%,
+    var(--cerulean-dark) 50%,
+    var(--gray-dark) 100%
+  );
+  background-attachment: fixed;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Container styling */
+main {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--gray-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: white;
+  width: 90%;
+  max-width: 1200px;
+  min-height: 80vh;
+  margin: 2rem auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--gray-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--gray-border);
+}
+
+th {
+  background-color: var(--cerulean-dark);
+  color: white;
+  font-weight: 600;
+}
+
+tr {
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+tr:hover {
+  background-color: rgba(0, 123, 167, 0.5);
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(44, 62, 80, 0.5);
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  justify-content: center;
+  background-color: var(--cerulean-dark);
+  border-bottom: 1px solid var(--gray-border);
+  padding: 1rem;
+  width: 100%;
+}
+
+.nav-item {
+  margin: 0 1.5rem;
+  list-style: none;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: var(--yellow-hover);
+  color: var(--gray-dark);
+}
+
+.active {
+  background-color: var(--yellow-light);
+  color: var(--gray-dark);
+  font-weight: 700;
+}
+
+/* Button styling */
+button {
+  border-radius: 8px;
+  border: 1px solid var(--gray-border);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: var(--cerulean-dark);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--yellow-hover);
+  color: var(--gray-dark);
+  border-color: var(--yellow-hover);
+}
+
+/* Form elements */
+input, select {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--gray-border);
+  border-radius: 6px;
+  padding: 0.6em 1em;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--yellow-hover);
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  main {
+    width: 95%;
+    padding: 1rem;
+  }
+  
+  .nav-item {
+    margin: 0 0.5rem;
+  }
+  
+  th, td {
+    padding: 0.5rem;
+  }
+}
