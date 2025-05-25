@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
+// Removed duplicate function Nav
+
 const Nav = () => {
   return (
     <nav>
