@@ -1,17 +1,12 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-
-
-
-// Removed duplicate function Nav
 
 const Nav = () => {
   return (
-    <nav>
+    <nav className="nav">
       <ul>
         <li><Link to="/">Home</Link></li>
+        <li><Link to="/saved-candidates">Saved Candidates</Link></li>
         <li><Link to="/about">About</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
       </ul>
     </nav>
   );

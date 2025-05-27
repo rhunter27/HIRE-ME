@@ -1,32 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css';
-
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './App';
-import CandidateSearch from './pages/CandidateSearch.tsx';
-import SavedCandidates from './pages/SavedCandidates.tsx';
-import ErrorPage from './pages/ErrorPage.tsx';
+import CandidateSearch from './pages/CandidateSearch';
+import SavedCandidates from './pages/SavedCandidates';
+import About from './pages/About'; // Import the About page
+import { SavedCandidatesProvider } from './context/SavedCandidatesContext';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />,
     children: [
-      {
-        index: true,
-        element: <CandidateSearch />,
-      },
-      {
-        path: '/SavedCandidates',
-        element: <SavedCandidates />,
-      },
+      { index: true, element: <CandidateSearch /> },
+      { path: 'saved-candidates', element: <SavedCandidates /> },
+      { path: 'about', element: <About /> }, // Add the About route
     ],
   },
 ]);
 
-const rootElement = document.getElementById('root');
-if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(<RouterProvider router={router} />);
-}
+const root = ReactDOM.createRoot(document.getElementById('root')!);
+root.render(
+  <React.StrictMode>
+    <SavedCandidatesProvider>
+      <RouterProvider router={router} />
+    </SavedCandidatesProvider>
+  </React.StrictMode>
+);
