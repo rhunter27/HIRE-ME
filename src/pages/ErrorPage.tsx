@@ -1,4 +1,5 @@
 // src/pages/ErrorPage.tsx
+import React from 'react';
 
 const ErrorPage = () => {
   return (

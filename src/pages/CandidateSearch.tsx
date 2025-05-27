@@ -35,7 +35,7 @@ const CandidateSearch = () => {
             <img src={user.avatar_url} alt={user.name || user.login} width="50" />
             <p>Name: {user.name || user.login}</p>
             <p>Location: {user.location || 'N/A'}</p>
-            <button onClick={() => addCandidate({ id: user.id, name: user.name || user.login, username: user.login })}>Save Candidate</button>
+            <button onClick={() => addCandidate(user)}>Save Candidate</button>
           </li>
         ))}
       </ul>

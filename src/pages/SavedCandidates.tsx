@@ -1,7 +1,7 @@
 import { useSavedCandidates } from '../context/SavedCandidatesContext';
 
 const SavedCandidates: React.FC = () => {
-  const { savedCandidates, removeCandidate } = useSavedCandidates(); // Access savedCandidates and removeCandidate
+  const { savedCandidates, removeCandidate } = useSavedCandidates();
 
   return (
     <div>
@@ -11,20 +11,35 @@ const SavedCandidates: React.FC = () => {
       ) : (
         <ul>
           {savedCandidates.map((candidate) => (
-            <li key={candidate.id}>
+            <li key={candidate.id} style={{ marginBottom: '1rem' }}>
               <img
                 src={candidate.avatar_url}
-                alt={candidate.name || candidate.username}
+                alt={`${candidate.name || candidate.username}'s avatar`}
                 width="50"
+                style={{ borderRadius: '50%' }}
               />
-              <p>Name: {candidate.name || candidate.username}</p>
-              <p>Location: {candidate.location || 'N/A'}</p>
-              <p>
+              <div>
+                <strong>Name:</strong> {candidate.name || 'N/A'}
+              </div>
+              <div>
+                <strong>Username:</strong> {candidate.username}
+              </div>
+              <div>
+                <strong>Location:</strong> {candidate.location || 'N/A'}
+              </div>
+              <div>
+                <strong>Email:</strong> {candidate.email || 'N/A'}
+              </div>
+              <div>
+                <strong>Company:</strong> {candidate.company || 'N/A'}
+              </div>
+              <div>
+                <strong>GitHub Profile:</strong>{' '}
                 <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
-                  View GitHub Profile
+                  {candidate.html_url}
                 </a>
-              </p>
-              <button onClick={() => removeCandidate(candidate.id)}>Remove</button>
+              </div>
+              <button onClick={() => removeCandidate(candidate.id)}>Delete</button>
             </li>
           ))}
         </ul>
